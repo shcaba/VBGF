@@ -1,3 +1,5 @@
+library(shiny)
+
 shinyUI(fluidPage(
   
   #  Application title
@@ -25,6 +27,13 @@ shinyUI(fluidPage(
     ),
     
     # Show a table summarizing the values entered
-    mainPanel(plotOutput("VBGFplot"))
+    mainPanel(
+      plotOutput("VBGFplot"),
+      #h2(strong(expression(L[t] L[inf]*(1-exp^(-k*b*(1-d)*(t-t[0]))))),align="center")
+      withMathJax(helpText('and a fact about \\(\\pi\\):
+           $$\\frac2\\pi = \\frac{\\sqrt2}2 \\cdot
+           \\frac{\\sqrt{2+\\sqrt2}}2 \\cdot
+                           \\frac{\\sqrt{2+\\sqrt{2+\\sqrt2}}}2 \\cdots$$'))
+      )
   )
 ))

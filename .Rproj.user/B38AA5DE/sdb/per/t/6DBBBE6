@@ -1,0 +1,16 @@
+{
+    "contents" : "# Define server logic required to draw a histogram\nlibrary(shiny)\n\nshinyServer(\n  function(input, output) \n  {    \n\nGVBGF<-function(Linf,k,t0,b,d,ages)\n{\n  Lengths_exp<-Linf*(1-exp(-k*b*(1-d)*(ages-t0)))\n  return(Lengths_exp)\n}\n\noutput$VBGFplot <- renderPlot(\n{\n  ages<-c(1:input$amax)\n  lengths.out<-GVBGF(input$Linf,input$k,input$t0,input$b,input$d,ages)\n  # plot VBGF\n  plot(ages, lengths.out, col = \"blue\",xlab=\"Age\",ylab=\"Length\",xlim=c(0,input$amax),ylim=c(0,input$Linf*1.1),type=\"l\",lwd=5)\n}\n    )\n  }\n)\n\n",
+    "created" : 1425439807636.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "355990",
+    "id" : "6DBBBE6",
+    "lastKnownWriteTime" : 1425440004,
+    "path" : "~/GitHub/VBGF/VBGF_shiny/server.R",
+    "project_path" : "VBGF_shiny/server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

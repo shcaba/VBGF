@@ -1,0 +1,16 @@
+{
+    "contents" : "library(shiny)\n\nshinyUI(fluidPage(\n  \n  #  Application title\n  titlePanel(\"Generalized VBGF\"),\n  \n  # Sidebar with sliders that demonstrate various available\n  # options\n  sidebarLayout(\n    sidebarPanel\n    (\n      sliderInput(\"amax\", \"Age classes:\", \n                  min=1, max=100, value=50),    \n      sliderInput(\"Linf\", \"Linf:\", \n                  min=1, max=1000, value=100),\n      sliderInput(\"k\", \"k:\", \n                    min = 0.01, max = 1, value = 0.1,step=0.01),\n      sliderInput(\"t0\", \"t0\",\n                  min = -5, max = 5, value = 0,step=0.1),\n      \n      sliderInput(\"b\", \"Wt-Lt exponent (b):\", \n                 min = 2, max = 4, value = 3,step=0.01),\n      \n      sliderInput(\"d\", \"Allometric scaling (d):\",\n                  min = 0.01, max = 1, value = 0.67,step=0.01)\n    ),\n    \n    # Show a table summarizing the values entered\n    mainPanel(\n      plotOutput(\"VBGFplot\"),\n      #h2(strong(expression(L[t] L[inf]*(1-exp^(-k*b*(1-d)*(t-t[0]))))),align=\"center\")\n      withMathJax(helpText('and a fact about \\\\(\\\\pi\\\\):\n           $$\\\\frac2\\\\pi = \\\\frac{\\\\sqrt2}2 \\\\cdot\n           \\\\frac{\\\\sqrt{2+\\\\sqrt2}}2 \\\\cdot\n                           \\\\frac{\\\\sqrt{2+\\\\sqrt{2+\\\\sqrt2}}}2 \\\\cdots$$'))\n      )\n  )\n))",
+    "created" : 1425439813059.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3211904932",
+    "id" : "6FC763C",
+    "lastKnownWriteTime" : 1425450856,
+    "path" : "~/GitHub/VBGF/VBGF_shiny/ui.R",
+    "project_path" : "VBGF_shiny/ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
